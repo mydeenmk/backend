@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import theme from './theme'
 import { useState,useContext } from 'react'
 import { PostContext } from './PostContext'
+;
 
 
 const useStyles = makeStyles(theme => ({
@@ -49,17 +50,17 @@ function Home() {
     }, [navigate]);
     
 
-    const handlePost = () => {
-        // // Handle post creation logic here
-        // console.log('Posted:', postText);
+    // const handlePost = () => {
+    //     // // Handle post creation logic here
+    //     // console.log('Posted:', postText);
 
-        // navigate('/profile', { state: { postText } });
-        // // Clear the post text after posting
-        // setPostText('');
-        const newPost = { text: postText};
-        addPost(newPost);
-        setPostText('')
-      };
+    //     // navigate('/profile', { state: { postText } });
+    //     // // Clear the post text after posting
+    //     // setPostText('');
+    //     const newPost = { text: postText};
+    //     addPost(newPost);
+    //     setPostText('')
+    //   };
     
     //   const handleLike = () => {
     //     setLikes(likes + 1);
@@ -69,6 +70,16 @@ function Home() {
     //     // Handle comment logic here
     //     console.log('Commented');
     //   };
+
+    const handlePost = async () => {
+      if (localStorage.getItem('jwt')) {
+        await addPost({ text: postText });
+        setPostText('');
+      } else {
+        alert('You must sign in to post.');
+        navigate('/signin');
+      }
+    };
     return (
       <div  className={classes.cardroot}>
         <Card className={classes.card}>
