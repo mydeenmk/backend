@@ -12,11 +12,20 @@ import { PostContext } from './PostContext'
 
 
 const useStyles = makeStyles(theme => ({
-    card: {
-        maxWidth: 600,
-        margin: 'auto',
-        marginTop: theme.spacing(5)
-    },
+  root: {
+    position: 'relative', 
+    minHeight: '100vh', 
+  },
+  card: {
+    position: 'absolute', 
+    top: 50, 
+    left: '50%', 
+    transform: 'translateX(-50%)',
+    width:'70%',
+    maxWidth: 800,
+    margin: 'auto',
+    marginTop: theme.spacing(5),
+  },
     title: {
         padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
         color: theme.palette.openTitle
@@ -28,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 function Home() {
     const { addPost } = useContext(PostContext);
-    const [postText, setPostText] = useState(''); // postText is defined here
+    const [postText, setPostText] = useState(''); 
     const [likes, setLikes] = useState(0);
     const [comments, setComments] = useState([]);
     const classes = useStyles();
@@ -61,6 +70,7 @@ function Home() {
     //     console.log('Commented');
     //   };
     return (
+      <div  className={classes.cardroot}>
         <Card className={classes.card}>
             <Typography variant='h6' className={classes.title}>
                 Home Page
@@ -93,6 +103,7 @@ function Home() {
         </div>
             </CardContent>
         </Card>
+        </div>
     )
 }
 

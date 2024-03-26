@@ -1,24 +1,31 @@
 .sidebar {
-    flex: 3;
-    height: calc(100vh - 50px);
     overflow-y: scroll;
     position: sticky;
     top: 50px;
+   
   }
   
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: rgb(179, 179, 179);
-  }
   
   .sidebarWrapper {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
+  
+  .sidebarWrapper .sidebarButton {
+    align-self: flex-start; /* Align button to the start of the flex container (left side) */
+    margin-top: 20px;
+    width: auto; /* Set width to auto to fit content */
+    text-transform: uppercase;
+    font-weight: bold;
+  
+  }
+  
+  .sidebarWrapper .sidebarHr {
+    margin: 10px 0; /* Adjust margin as needed */
+  }
+  
+  
   
   .sidebarList {
     padding: 0;
@@ -48,8 +55,4 @@
     margin: 20px 0;
   }
   
-  .sidebarFriendList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
+ 

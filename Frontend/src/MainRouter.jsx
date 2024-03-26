@@ -17,6 +17,7 @@ const MainRouter = () => {
             <Menu />
             <Sidebar/>
             <Routes>
+                
                 <Route exact path='/' element={<Home />} />
                 <Route path='/users' element={<Users />} />
                 <Route path='/signup' element={<Signup />} />
