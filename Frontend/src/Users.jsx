@@ -27,7 +27,7 @@ function Users() {
             const response =  await fetch('http://localhost:3000/api/users', {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('jwt')).token}`,
+                    'authorization': `Bearer ${JSON.parse(localStorage.getItem('jwt')).token}`,
                 },
             });
             const data = await response.json();
