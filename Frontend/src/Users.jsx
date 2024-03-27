@@ -30,7 +30,9 @@ function Users() {
                 headers: {
                     'authorization': `Bearer ${JSON.parse(localStorage.getItem('jwt')).token}`,
                 },
+               
             });
+           
             const data = await response.json();
             if (response.ok) {
                 setUsers(data);
