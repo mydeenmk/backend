@@ -50,7 +50,7 @@ function Signin() {
             password: values.password || undefined,
         }
 try{
-    fetch(' http://localhost:3000/api/users', {
+    fetch(' http://localhost:3000/auth/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
